@@ -97,6 +97,10 @@ func (s *FaunaStore) Save(r *http.Request, w http.ResponseWriter, session *sessi
 	return nil
 }
 
+func (s *FaunaStore) Options(opts sessions.Options) {
+	s.options = opts
+}
+
 func (s *FaunaStore) load(session *sessions.Session) error {
 	/*
 		cmd := s.client.Get(s.keyPrefix + session.ID)
