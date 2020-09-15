@@ -6,7 +6,6 @@ import (
 	"encoding/base32"
 	"encoding/gob"
 	"errors"
-	"fmt"
 	"io"
 	"net/http"
 	"strings"
@@ -45,7 +44,6 @@ func NewFaunaStore(client *f.FaunaClient) (*FaunaStore, error) {
 
 // Get should return a cached session.
 func (s *FaunaStore) Get(r *http.Request, name string) (*sessions.Session, error) {
-	panic(fmt.Sprintf("%+v\n", s))
 	return sessions.GetRegistry(r).Get(s, name)
 }
 
@@ -56,7 +54,6 @@ func (s *FaunaStore) Get(r *http.Request, name string) (*sessions.Session, error
 func (s *FaunaStore) New(r *http.Request, name string) (*sessions.Session, error) {
 
 	session := sessions.NewSession(s, name)
-	panic(fmt.Sprintf("%+v\n", s))
 	opts := s.options
 	session.Options = &opts
 	session.IsNew = true
