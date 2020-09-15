@@ -45,6 +45,7 @@ func NewFaunaStore(client *f.FaunaClient) (*FaunaStore, error) {
 
 // Get should return a cached session.
 func (s *FaunaStore) Get(r *http.Request, name string) (*sessions.Session, error) {
+	panic(fmt.Sprintf("%+v\n", s))
 	return sessions.GetRegistry(r).Get(s, name)
 }
 
