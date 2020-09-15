@@ -6,6 +6,7 @@ import (
 	"encoding/base32"
 	"encoding/gob"
 	"errors"
+	"fmt"
 	"io"
 	"net/http"
 	"strings"
@@ -54,6 +55,7 @@ func (s *FaunaStore) Get(r *http.Request, name string) (*sessions.Session, error
 func (s *FaunaStore) New(r *http.Request, name string) (*sessions.Session, error) {
 
 	session := sessions.NewSession(s, name)
+	fmt.Sprintf("%+v\n", s)
 	opts := s.options
 	session.Options = &opts
 	session.IsNew = true
